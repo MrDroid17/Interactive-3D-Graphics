@@ -27,7 +27,13 @@ function drawSquare(x1, y1, x2, y2) {
 
 	var square = new THREE.Geometry();
 	// Your code goes here
+	square.vertices.push( new THREE.Vector3( x1, y1, 0 ) );
+	square.vertices.push( new THREE.Vector3( x2, y1, 0 ) );
+	square.vertices.push( new THREE.Vector3( x2, y2, 0 ) );
+	square.vertices.push( new THREE.Vector3( x1, y2, 0 ) );
 
+	square.faces.push( new THREE.Face3( 0, 1, 2 ) );
+	square.faces.push( new THREE.Face3( 2, 0, 3 ) );
 	// don't forget to return the geometry!	The following line is required!
 	return square;
 }
@@ -92,7 +98,7 @@ try {
 	var triangleMesh = new THREE.Mesh( triangleGeometry, triangleMaterial );
 	scene.add(triangleMesh);
 	// creating and adding your square to the scene !
-	var square_material = new THREE.MeshBasicMaterial( { color: 0xF6831E, side: THREE.DoubleSide } );
+	var square_material = new THREE.MeshBasicMaterial( { color: 0x27d5AA, side: THREE.DoubleSide } );
 	var square_geometry = drawSquare(3,5,7,9);
 	var square_mesh = new THREE.Mesh(square_geometry, square_material);
 	scene.add(square_mesh);
