@@ -377,6 +377,8 @@ function render() {
 	cameraControls.update(delta);
 
 	bird.animated.rotation.z += tiltDirection * 0.5 * Math.PI / 180;
+
+	
 	if (bird.animated.rotation.z > 103 * Math.PI / 180) {
 		tiltDirection = -1;
 		bird.animated.rotation.z = 2 * (103 * Math.PI / 180) - bird.animated.rotation.z;
